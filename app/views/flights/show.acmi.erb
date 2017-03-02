@@ -1,0 +1,25 @@
+<% first_time = @flight.departure_time.to_i / telemetry_interval.to_i * telemetry_interval.to_i -%>
+<% takeoff_time = @flight.takeoff_time.to_i / telemetry_interval.to_i * telemetry_interval.to_i -%>
+<% landing_time = @flight.landing_time.to_i / telemetry_interval.to_i * telemetry_interval.to_i -%>
+<% last_time = (@flight.arrival_time.to_i / telemetry_interval.to_i + 1) * telemetry_interval.to_i -%>
+FileType=text/acmi/tacview
+FileVersion=2.2
+0,ReferenceTime=<%= Time.at(first_time).utc.xmlschema %>
+0,DataSource=OneMikeAlpha
+0,Title=<%= short_description @flight %>
+0,Comments=<%= long_description @flight %>
+1,<%= aircraft_tacview_properties %>
+
+<% first_time.step(by: telemetry_interval.to_i, to: last_time).each do |time| -%>
+<% next unless time == takeoff_time || time == landing_time || (props = changed_properties(time)).present? -%>
+#<%= time - first_time %>
+<% if time == takeoff_time -%>
+0,Event=TakenOff|1|Takeoff from <%= @flight.origin.identifier %>
+<% end -%>
+<% if time == landing_time -%>
+0,Event=Landed|1|Landing at <%= @flight.destination.identifier %>
+<% end -%>
+<% if props.present? -%>
+1,<%= props %>
+<% end -%>
+<% end -%>

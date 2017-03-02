@@ -1,0 +1,19 @@
+---
+:concurrency: 2
+:pidfile: tmp/pids/sidekiq.pid
+production:
+  :queues:
+  - 1ma_production_active_storage_analysis
+  - 1ma_production_active_storage_purge
+  - 1ma_production_default
+development:
+  :concurrency: 2
+  :queues:
+  - 1ma_development_active_storage_analysis
+  - 1ma_development_active_storage_purge
+  - 1ma_development_default
+cypress:
+  :queues:
+  - 1ma_cypress_active_storage_analysis
+  - 1ma_cypress_active_storage_purge
+  - 1ma_cypress_default

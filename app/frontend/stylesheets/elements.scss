@@ -1,0 +1,63 @@
+@import "config.scss";
+
+* {
+    font-family: 'Cabin', sans-serif;
+}
+
+p, a, li {
+    color: $gray;
+}
+
+p {
+    &:first-child { margin-top: 0; }
+    &:last-child { margin-bottom: 0; }
+}
+
+a {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.muted, a.muted {
+    color: $medium-gray;
+}
+
+.error {
+    color: $red;
+}
+
+a {
+    color: $dark-gray
+}
+
+a:hover, a:hover * {
+    color: $black;
+}
+
+p.big-help {
+    color: $medium-gray;
+    font-size: $font-size-large;
+    line-height: $line-height-large;
+    text-align: center;
+    margin-top: calc(50vh - #{$line-height-large} / 2);
+
+    &.error {
+        color: $red;
+    }
+}
+
+.help {
+    color: $medium-gray;
+    text-align: center;
+    margin-top: calc(50vh - #{$font-size-large} / 2);
+
+    h1 {
+        font-size: $font-size-large;
+        line-height: $font-size-large;
+        font-weight: 300;
+    }
+
+    p {
+        color: $medium-gray;
+    }
+}

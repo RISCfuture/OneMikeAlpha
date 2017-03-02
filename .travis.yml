@@ -1,0 +1,33 @@
+language: ruby
+ruby:
+  - 3.0.2
+node_js:
+  - 12.14.1
+services:
+  - postgresql
+addons:
+  postgresql: "11.5"
+  apt:
+    packages:
+      - postgresql-11.5-postgis-2.5
+before_install:
+  - sudo add-apt-repository ppa:timescale/timescaledb-ppa
+  - sudo apt-get update
+  - sudo apt install timescaledb-postgresql-11
+  - sudo apt-get --yes remove postgresql\*
+  - sudo apt-get install -y postgresql-11 postgresql-client-11
+  - sudo cp /etc/postgresql/{9.6,11}/main/pg_hba.conf
+  - sudo timescaledb-tune
+  - sudo service postgresql restart 11
+  - gem update --system
+  - gem install bundler
+before_script:
+  - createuser 1ma
+  - createdb -O 1ma 1ma_test
+  - yarn install
+  - bundle exec rails db:migrate webpacker:compile
+env:
+  global:
+    - secure: KgFhTcvlgQ3qfI8/9gJJngTex0oNY4WRihw0+NM2/DoXnppoGTY1jbOzEjl4ZrMIqddfduDV29d9AGh3Wh/z6Uk8FPk58kmBtttTcRhGLuRtM2Nz7pYa4cvo9h48v5/RaMByqBy16qDIMPvetTtHP9fryIGMeHEQGTmz395wN1WRDTmxeAC18h3f/jqtVwv+k3FWClLlCaiT3qMwC5laZTq0jZJcrxnIu2pF3krviaAVhErhYSv3lqIOrbcaStAyoJRhWIF5hNerH7WD0BwTM8LfVhgyT4JaDYyVIPe7FtsYZqqUjWpRXWNMonUS0DVAyE4w3kkc8KuhKeVuvRR05/pWFn+i/BbeOJdgEb4ZbzWagVbgRApPMM66HBwdWfbUnJDR/bgnmmi+qj18/1E4k1q4m+3xLkZfPS8wzCmctmEA7t6v8zusB7qMBE8Cloq6t6+QkIeszaQf+ShQlSNmFI4xp4vNTZ5iFiCyzBu2UAFmEntJvLHQh9x6dvx3+/2mvlWsGZXw+ZoekVc+MVu6rroLLfZ3rSWi6+W5CC8u2cc34YFidfsD0zOEZ4s+BIf0+Rt5L9ul6ZCLGn/VKUZv3XRKHWxguhGumBXHlAewZUxbl31jWC8obrIfu2t0whL8KiNi3OnxSHs9n+lQmRSv4xHfWhTyjW//SRid+LS78YI=
+    - RAILS_TEST_DB_USERNAME=postgres
+    - PGUSER=postgres

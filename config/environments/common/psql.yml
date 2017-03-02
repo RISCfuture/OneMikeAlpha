@@ -1,0 +1,5 @@
+---
+path: /opt/homebrew/bin/psql
+shp2pgsql_path: /opt/homebrew/bin/shp2pgsql
+#path: /usr/local/bin/psql
+#shp2pgsql_path: /usr/local/bin/shp2pgsql

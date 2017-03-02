@@ -1,0 +1,680 @@
+{
+  "importers":          [
+    "Batch::AvidyneR9",
+    "File::AvidyneR9"
+  ],
+  "systems":            {
+    "radios":               [
+      "comm1",
+      "comm2",
+      "nav1",
+      "nav2"
+    ],
+    "position_sensors":     [
+      "adahrs1",
+      "adahrs2",
+      "gps1",
+      "gps2"
+    ],
+    "navigation_systems":   [
+      "fms",
+      "nav1",
+      "nav2"
+    ],
+    "instrument_sets":      [
+      "ifd1",
+      "ifd2"
+    ],
+    "pitot_static_systems": [
+      "adahrs1",
+      "adahrs2"
+    ]
+  },
+  "estimated_values":   [
+    "pitot_static_systems[any].air_pressure",
+    "pitot_static_systems[any].air_density",
+    "pitot_static_systems[any].density_altitude",
+    "pitot_static_systems[any].speed_of_sound",
+    "pitot_static_systems[any].mach",
+    "pitot_static_systems[any].static_air_temperature",
+    "pitot_static_systems[any].temperature_deviation",
+    "position_sensors[any].climb_gradient",
+    "position_sensors[any].climb_angle"
+  ],
+  "charts":             {
+    "continuous": [
+      {
+        "group":  "telemetry",
+        "charts": [
+          {
+            "chart":      "heading",
+            "parameters": [
+              "position_sensors[any].magnetic_heading",
+              "instrument_sets[any].heading_bug"
+            ],
+            "i18n":       [
+              "position_sensors.magnetic_heading",
+              "instrument_sets.heading_bug"
+            ],
+            "units":      "heading"
+          },
+          {
+            "chart":          "altitudes",
+            "parameters":     [
+              "instrument_sets[any].indicated_altitude",
+              "instrument_sets[any].altitude_bug",
+              "position_sensors[any].altitude",
+              "pitot_static_systems[any].pressure_altitude",
+              "pitot_static_systems[any].density_altitude",
+              "position_sensors[any].ground_elevation"
+            ],
+            "i18n":           [
+              "instrument_sets.indicated_altitude",
+              "instrument_sets.altitude_bug",
+              "position_sensors.altitude",
+              "pitot_static_systems.pressure_altitude",
+              "pitot_static_systems.density_altitude",
+              "position_sensors.ground_elevation"
+            ],
+            "referenceLines": "significantAltitudes",
+            "series":         {
+              "position_sensors[any].ground_elevation": "ground"
+            },
+            "units":          "altitude"
+          },
+          {
+            "chart":      "vertical_speed",
+            "parameters": [
+              "pitot_static_systems[any].vertical_speed",
+              "instrument_sets[any].vertical_speed_bug"
+            ],
+            "i18n":       [
+              "pitot_static_systems.vertical_speed",
+              "instrument_sets.vertical_speed_bug"
+            ],
+            "units":      "speed"
+          },
+          {
+            "chart":          "speeds",
+            "parameters":     [
+              "pitot_static_systems[any].indicated_airspeed",
+              "pitot_static_systems[any].true_airspeed",
+              "position_sensors[any].ground_speed",
+              "pitot_static_systems[any].speed_of_sound"
+            ],
+            "i18n":           [
+              "pitot_static_systems.indicated_airspeed",
+              "pitot_static_systems.true_airspeed",
+              "position_sensors.ground_speed",
+              "pitot_static_systems.speed_of_sound"
+            ],
+            "referenceLines": "significantSpeeds",
+            "series":         {
+              "pitot_static_systems[any].speed_of_sound": "speedOfSound"
+            },
+            "units":          "speed"
+          },
+          {
+            "chart":          "orientation",
+            "parameters":     [
+              "position_sensors[any].pitch",
+              "position_sensors[any].roll"
+            ],
+            "i18n":           [
+              "position_sensors.pitch",
+              "position_sensors.roll"
+            ],
+            "units":          "angle",
+            "referenceLines": "aerobaticLimits"
+          },
+          {
+            "chart":      "tracks",
+            "parameters": [
+              "position_sensors[any].magnetic_track",
+              "navigation_systems[any].desired_track"
+            ],
+            "i18n":       [
+              "position_sensors.magnetic_track",
+              "navigation_systems.desired_track"
+            ],
+            "units":      "heading"
+          },
+          {
+            "chart":          "rates",
+            "parameters":     [
+              "position_sensors[any].pitch_rate",
+              "position_sensors[any].roll_rate",
+              "position_sensors[any].yaw_rate",
+              "position_sensors[any].heading_rate"
+            ],
+            "i18n":           [
+              "position_sensors.pitch_rate",
+              "position_sensors.roll_rate",
+              "position_sensors.yaw_rate",
+              "position_sensors.heading_rate"
+            ],
+            "referenceLines": "standardRateTurns",
+            "units":          "turn_rate"
+          },
+          {
+            "chart":      "accelerations",
+            "parameters": [
+              "acceleration_normal",
+              "acceleration_lateral",
+              "acceleration_longitudinal"
+            ],
+            "i18n":       [
+              "acceleration_normal",
+              "acceleration_lateral",
+              "acceleration_longitudinal"
+            ],
+            "units":      "acceleration"
+          }
+        ]
+      },
+      {
+        "group":  "engine",
+        "charts": [
+          {
+            "chart":      "manifold_pressure",
+            "parameters": [
+              "engines[1].manifold_pressure"
+            ],
+            "i18n":       [
+              "engines.manifold_pressure"
+            ],
+            "units":      "air_pressure"
+          },
+          {
+            "chart":      "rpm",
+            "parameters": [
+              "engines[1].propellers[1].rotational_velocity"
+            ],
+            "i18n":       [
+              "engines.propellers.rotational_velocity"
+            ],
+            "units":      "rotational_velocity"
+          },
+          {
+            "chart":      "egts",
+            "parameters": [
+              "engines[1].cylinders[1].exhaust_gas_temperature",
+              "engines[1].cylinders[2].exhaust_gas_temperature",
+              "engines[1].cylinders[3].exhaust_gas_temperature",
+              "engines[1].cylinders[4].exhaust_gas_temperature",
+              "engines[1].cylinders[5].exhaust_gas_temperature",
+              "engines[1].cylinders[6].exhaust_gas_temperature"
+            ],
+            "i18n":       [
+              "engines.cylinders.1.exhaust_gas_temperature",
+              "engines.cylinders.2.exhaust_gas_temperature",
+              "engines.cylinders.3.exhaust_gas_temperature",
+              "engines.cylinders.4.exhaust_gas_temperature",
+              "engines.cylinders.5.exhaust_gas_temperature",
+              "engines.cylinders.6.exhaust_gas_temperature"
+            ],
+            "units":      "temperature"
+          },
+          {
+            "chart":      "chts",
+            "parameters": [
+              "engines[1].cylinders[1].cylinder_head_temperature",
+              "engines[1].cylinders[2].cylinder_head_temperature",
+              "engines[1].cylinders[3].cylinder_head_temperature",
+              "engines[1].cylinders[4].cylinder_head_temperature",
+              "engines[1].cylinders[5].cylinder_head_temperature",
+              "engines[1].cylinders[6].cylinder_head_temperature"
+            ],
+            "i18n":       [
+              "engines.cylinders.1.cylinder_head_temperature",
+              "engines.cylinders.2.cylinder_head_temperature",
+              "engines.cylinders.3.cylinder_head_temperature",
+              "engines.cylinders.4.cylinder_head_temperature",
+              "engines.cylinders.5.cylinder_head_temperature",
+              "engines.cylinders.6.cylinder_head_temperature"
+            ],
+            "units":      "temperature"
+          },
+          {
+            "chart":      "oil_pressure",
+            "parameters": [
+              "engines[1].oil_pressure"
+            ],
+            "i18n":       [
+              "engines.oil_pressure"
+            ],
+            "units":      "system_pressure"
+          },
+          {
+            "chart":      "oil_temperature",
+            "parameters": [
+              "engines[1].oil_temperature"
+            ],
+            "i18n":       [
+              "engines.oil_temperature"
+            ],
+            "units":      "temperature"
+          },
+          {
+            "chart":      "percent_power",
+            "parameters": [
+              "engines[1].percent_power"
+            ],
+            "i18n":       [
+              "engines.percent_power"
+            ],
+            "unitLabel":  "percent"
+          }
+        ]
+      },
+      {
+        "group":  "fuel",
+        "charts": [
+          {
+            "chart":      "fuel_flow",
+            "parameters": [
+              "engines[1].fuel_flow"
+            ],
+            "i18n":       [
+              "engines.fuel_flow"
+            ],
+            "units":      "volumetric_flow"
+          },
+          {
+            "chart":      "fuel_used",
+            "parameters": [
+              "fuel_totalizer_used",
+              "fuel_totalizer_remaining"
+            ],
+            "i18n":       [
+              "fuel_totalizer_used",
+              "fuel_totalizer_remaining"
+            ],
+            "units":      "volume"
+          },
+          {
+            "chart":      "fuel_economy",
+            "parameters": [
+              "fuel_totalizer_economy"
+            ],
+            "i18n":       [
+              "fuel_totalizer_economy"
+            ],
+            "units":      "fuel_economy"
+          },
+          {
+            "chart":          "fuel_time",
+            "parameters":     [
+              "fuel_totalizer_time_remaining"
+            ],
+            "i18n":           [
+              "fuel_totalizer_time_remaining"
+            ],
+            "referenceLines": "fuelTimeReserves",
+            "units":          "time"
+          }
+        ]
+      },
+      {
+        "group":  "electrical",
+        "charts": [
+          {
+            "chart":      "potentials",
+            "parameters": [
+              "electrical_systems[main_bus].potential",
+              "electrical_systems[emergency_bus].potential"
+            ],
+            "i18n":       [
+              "electrical_systems.main_bus.potential",
+              "electrical_systems.emergency_bus.potential"
+            ],
+            "units":      "potential"
+          }
+        ]
+      },
+      {
+        "group":  "avionics",
+        "charts": [
+          {
+            "chart":      "altimeter_setting",
+            "parameters": [
+              "instrument_sets[any].altimeter_setting"
+            ],
+            "i18n":       [
+              "instrument_sets.altimeter_setting"
+            ],
+            "units":      "air_pressure"
+          },
+          {
+            "chart":      "flight_director",
+            "parameters": [
+              "instrument_sets[any].flight_director_pitch",
+              "instrument_sets[any].flight_director_roll"
+            ],
+            "i18n":       [
+              "instrument_sets.flight_director_pitch",
+              "instrument_sets.flight_director_roll"
+            ],
+            "units":      "angle"
+          }
+        ]
+      },
+      {
+        "group":  "navigation",
+        "charts": [
+          {
+            "chart":      "course_deviation",
+            "parameters": [
+              "navigation_systems[any].course_deviation"
+            ],
+            "i18n":       [
+              "navigation_systems.fms.course_deviation"
+            ],
+            "units":      "angle"
+          },
+          {
+            "chart":      "xtrack_deviation",
+            "parameters": [
+              "navigation_systems[any].lateral_deviation"
+            ],
+            "i18n":       [
+              "navigation_systems.fms.lateral_deviation"
+            ],
+            "units":      "distance"
+          },
+          {
+            "chart":      "deviations",
+            "parameters": [
+              "navigation_systems[nav1].lateral_deviation_factor",
+              "navigation_systems[nav1].vertical_deviation_factor",
+              "navigation_systems[nav2].lateral_deviation_factor",
+              "navigation_systems[nav2].vertical_deviation_factor"
+            ],
+            "i18n":       [
+              "navigation_systems.nav1.lateral_deviation_factor",
+              "navigation_systems.nav1.vertical_deviation_factor",
+              "navigation_systems.nav2.lateral_deviation_factor",
+              "navigation_systems.nav2.vertical_deviation_factor"
+            ]
+          },
+          {
+            "chart":      "vertical_deviation",
+            "parameters": [
+              "navigation_systems[any].vertical_deviation"
+            ],
+            "i18n":       [
+              "navigation_systems.fms.vertical_deviation"
+            ],
+            "units":      "altitude"
+          },
+          {
+            "chart":      "courses",
+            "parameters": [
+              "instrument_sets[any].course",
+              "instrument_sets[any].obs",
+              "navigation_systems[any].desired_track"
+            ],
+            "i18n":       [
+              "instrument_sets.course",
+              "instrument_sets.obs",
+              "navigation_systems.desired_track"
+            ],
+            "units":      "heading"
+          },
+          {
+            "chart":      "navaid_bearing",
+            "parameters": [
+              "navigation_systems[nav1].bearing",
+              "navigation_systems[nav2].bearing"
+            ],
+            "i18n":       [
+              "navigation_systems.nav1.bearing",
+              "navigation_systems.nav2.bearing"
+            ],
+            "units":      "heading"
+          }
+        ]
+      },
+      {
+        "group":  "environment",
+        "charts": [
+          {
+            "chart":      "oat",
+            "parameters": [
+              "pitot_static_systems[any].static_air_temperature"
+            ],
+            "i18n":       [
+              "pitot_static_systems.static_air_temperature"
+            ],
+            "units":      "air_temperature"
+          },
+          {
+            "chart":          "isa_dev",
+            "parameters":     [
+              "pitot_static_systems[any].temperature_deviation"
+            ],
+            "i18n":           [
+              "pitot_static_systems.temperature_deviation"
+            ],
+            "units":          "air_temperature_difference",
+            "referenceLines": "ISATemperatureDeviation"
+          },
+          {
+            "chart":      "magnetic_variation",
+            "parameters": [
+              "magnetic_variation"
+            ],
+            "i18n":       [
+              "magnetic_variation"
+            ],
+            "units":      "angle"
+          }
+        ]
+      }
+    ],
+    "discrete":   [
+      {
+        "group":      "fms",
+        "parameters": [
+          {
+            "parameter": "navigation_systems[fms].active_waypoint",
+            "i18n":      "navigation_systems.fms.active_waypoint"
+          },
+          {
+            "parameter":   "navigation_systems[fms].mode",
+            "i18n":        "navigation_systems.fms.mode",
+            "i18n_values": [
+              "navigation_systems.fms.mode.oceanic",
+              "navigation_systems.fms.mode.enroute",
+              "navigation_systems.fms.mode.terminal",
+              "navigation_systems.fms.mode.departure",
+              "navigation_systems.fms.mode.missed_approach",
+              "navigation_systems.fms.mode.approach"
+            ]
+          }
+        ]
+      },
+      {
+        "group":      "ifd1",
+        "parameters": [
+          {
+            "parameter":   "instrument_sets[ifd1].adahrs",
+            "i18n":        "instrument_sets.adahrs",
+            "i18n_values": [
+              "instrument_sets.adahrs.auto",
+              "instrument_sets.adahrs.adahrs1",
+              "instrument_sets.adahrs.adahrs2"
+            ]
+          },
+          {
+            "parameter":   "instrument_sets[ifd1].cdi_source",
+            "i18n":        "instrument_sets.cdi_source",
+            "i18n_values": [
+              "instrument_sets.cdi_source.fms",
+              "instrument_sets.cdi_source.nav1",
+              "instrument_sets.cdi_source.nav2"
+            ]
+          },
+          {
+            "parameter":   "instrument_sets[ifd1].gps",
+            "i18n":        "instrument_sets.gps",
+            "i18n_values": [
+              "instrument_sets.gps.auto",
+              "instrument_sets.gps.gps1",
+              "instrument_sets.gps.gps2"
+            ]
+          }
+        ]
+      },
+      {
+        "group":      "ifd2",
+        "parameters": [
+          {
+            "parameter":   "instrument_sets[ifd2].adahrs",
+            "i18n":        "instrument_sets.adahrs",
+            "i18n_values": [
+              "instrument_sets.adahrs.auto",
+              "instrument_sets.adahrs.adahrs1",
+              "instrument_sets.adahrs.adahrs2"
+            ]
+          },
+          {
+            "parameter":   "instrument_sets[ifd2].cdi_source",
+            "i18n":        "instrument_sets.cdi_source",
+            "i18n_values": [
+              "instrument_sets.cdi_source.fms",
+              "instrument_sets.cdi_source.nav1",
+              "instrument_sets.cdi_source.nav2"
+            ]
+          },
+          {
+            "parameter":   "instrument_sets[ifd1].gps",
+            "i18n":        "instrument_sets.gps",
+            "i18n_values": [
+              "instrument_sets.gps.auto",
+              "instrument_sets.gps.gps1",
+              "instrument_sets.gps.gps2"
+            ]
+          }
+        ]
+      },
+      {
+        "group":      "gps1",
+        "parameters": [
+          {
+            "parameter":   "position_sensors[gps1].state",
+            "i18n":        "position_sensors.gps.state",
+            "i18n_values": [
+              "position_sensors.gps.state.fault",
+              "position_sensors.gps.state.self_test",
+              "position_sensors.gps.state.initializing",
+              "position_sensors.gps.state.searching",
+              "position_sensors.gps.state.navigation",
+              "position_sensors.gps.state.fde",
+              "position_sensors.gps.state.sbas"
+            ]
+          }
+        ]
+      },
+      {
+        "group":      "gps2",
+        "parameters": [
+          {
+            "parameter":   "position_sensors[gps2].state",
+            "i18n":        "position_sensors.gps.state",
+            "i18n_values": [
+              "position_sensors.gps.state.fault",
+              "position_sensors.gps.state.self_test",
+              "position_sensors.gps.state.initializing",
+              "position_sensors.gps.state.searching",
+              "position_sensors.gps.state.navigation",
+              "position_sensors.gps.state.fde",
+              "position_sensors.gps.state.sbas"
+            ]
+          }
+        ]
+      },
+      {
+        "group":      "autopilot",
+        "parameters": [
+          {
+            "parameter":   "autopilot_lateral_active_mode",
+            "i18n":        "autopilot_lateral_active_mode",
+            "i18n_values": [
+              "autopilot_lateral_active_mode.none",
+              "autopilot_lateral_active_mode.roll",
+              "autopilot_lateral_active_mode.hdg",
+              "autopilot_lateral_active_mode.loc",
+              "autopilot_lateral_active_mode.loc_bc",
+              "autopilot_lateral_active_mode.vor",
+              "autopilot_lateral_active_mode.vor_appr",
+              "autopilot_lateral_active_mode.nav_appr",
+              "autopilot_lateral_active_mode.nav",
+              "autopilot_lateral_active_mode.nav_intcpt"
+            ]
+          },
+          {
+            "parameter":   "autopilot_vertical_active_mode",
+            "i18n":        "autopilot_vertical_active_mode",
+            "i18n_values": [
+              "autopilot_vertical_active_mode.none",
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              "autopilot_vertical_active_mode.pitch",
+              "autopilot_vertical_active_mode.ias",
+              "autopilot_vertical_active_mode.vs",
+              "autopilot_vertical_active_mode.alt",
+              "autopilot_vertical_active_mode.gs",
+              "autopilot_vertical_active_mode.alt_gs",
+              "autopilot_vertical_active_mode.vnav_alt",
+              "autopilot_vertical_active_mode.vnav_vs"
+            ]
+          }
+        ]
+      },
+      {
+        "group":      "nav1",
+        "parameters": [
+          {
+            "parameter": "radios[nav1].active_frequency",
+            "i18n":      "radios.active_frequency",
+            "units":     "vhf_uhf_frequency"
+          }
+        ]
+      },
+      {
+        "group":      "nav2",
+        "parameters": [
+          {
+            "parameter": "radios[nav2].active_frequency",
+            "i18n":      "radios.active_frequency",
+            "units":     "vhf_uhf_frequency"
+          }
+        ]
+      }
+    ]
+  },
+  "tacview_properties": {
+    "T":              [
+      "position_sensors[any].longitude",
+      "position_sensors[any].latitude",
+      "position_sensors[any].altitude",
+      "position_sensors[any].roll",
+      "position_sensors[any].pitch",
+      "position_sensors[any].true_heading"
+    ],
+    "IAS":            "pitot_static_systems[any].indicated_airspeed",
+    "TAS":            "pitot_static_systems[any].true_airspeed",
+    "AGL":            "position_sensors[any].height_agl",
+    "HDM":            "position_sensors[any].magnetic_heading",
+    "FuelVolume":     "fuel_totalizer_remaining",
+    "FuelFlowVolume": "engines[1].fuel_flow"
+  }
+}

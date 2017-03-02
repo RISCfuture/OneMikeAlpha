@@ -1,0 +1,66 @@
+{
+  "limitations": {
+    "engines[any].cylinders[any].cylinder_head_temperature": [
+      {
+        "from": "380 tempF",
+        "to": "420 tempF",
+        "type": "notice"
+      },
+      {
+        "from": "420 tempF",
+        "to": "460 tempF",
+        "type": "caution"
+      },
+      {
+        "from": "460 tempF",
+        "type": "warning"
+      }
+    ],
+    "engines[any].manifold_pressure": [
+      {
+        "from": "29.6 inHg",
+        "to": "32 inHg",
+        "type": "caution"
+      },
+      {
+        "from": "32 inHg",
+        "type": "warning"
+      }
+    ],
+    "engines[any].fuel_flow": [
+      {
+        "from": "36 gal/hr",
+        "to": "39 gal/hr",
+        "type": "caution"
+      },
+      {
+        "from": "39 gal/hr",
+        "type": "warning"
+      }
+    ],
+    "pitot_static_systems[any].pressure_altitude": [
+      {
+        "from": "25000 ft",
+        "type": "caution"
+      }
+    ],
+    "pitot_static_systems[any].indicated_altitude": [
+      {
+        "from": "25000 ft",
+        "type": "caution"
+      }
+    ],
+    "pitot_static_systems[any].static_air_temperature": [
+      {
+        "to": "-40 tempC",
+        "type": "warning"
+      }
+    ],
+    "engines[any].turbine_inlet_temperature": [
+      {
+        "from": "1750 tempF",
+        "type": "warning"
+      }
+    ]
+  }
+}

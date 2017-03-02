@@ -1,0 +1,122 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# The following keys must be escaped otherwise they will not be retrieved by
+# the default I18n backend:
+#
+# true, false, on, off, yes, no
+#
+# Instead, surround them with single quotes.
+#
+# en:
+#   'true': 'foo'
+#
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+
+en:
+  activerecord:
+    errors:
+      models:
+        aircraft:
+          attributes:
+            aircraft_data:
+              unknown: unknown aircraft type
+            equipment_data:
+              unknown: unknown equipment
+        airport:
+          attributes:
+            base:
+              must_have_identifier: must have either an FADDS site code or ICAO CSV identifier
+        flight:
+          attributes:
+            recording_end_time:
+              comes_before_start: must come after start time
+            arrival_time:
+              comes_before_start: must come after start time
+            landing_time:
+              comes_before_start: must come after start time
+        import:
+          attributes:
+            file_content_type:
+              invalid: not a valid telemetry file
+            file_fingerprint:
+              taken: already uploaded
+    models:
+      import: Import
+    attributes:
+      import:
+        file_content_type: File
+        file_fingerprint: File
+  errors:
+    messages:
+      accepted: must be accepted
+      blank: can’t be blank
+      confirmation: doesn’t match confirmation
+      empty: can’t be empty
+      equal_to: must be equal to %{count}
+      even: must be even
+      exclusion: reserved
+      greater_than: must be greater than %{count}
+      greater_than_or_equal_to: must be greater than or equal to %{count}
+      inclusion: not acceptable
+      incorrect_type: incorrect type
+      invalid: invalid
+      invalid_email: not a valid email address
+      less_than: must be less than %{count}
+      less_than_or_equal_to: must be less than or equal to %{count}
+      not_a_number: not a number
+      not_an_integer: not an integer
+      odd: must be odd
+      taken: already taken
+      too_long: must be %{count} characters or shorter
+      too_short: must be %{count} characters or longer
+      wrong_length: must be %{count} characters long
+      invalid_date: not a valid date
+      invalid_time: not a valid time
+      invalid_datetime: not a valid date and time
+      is_at: must be at %{restriction}
+      before: must be before %{restriction}
+      on_or_before: must be on or before %{restriction}
+      after: must be after %{restriction}
+      on_or_after: must be on or after %{restriction}
+  helpers:
+    flights:
+      short_description: "%{time} %{origin}–%{destination}"
+      long_description: "Flight from %{origin} to %{destination} on %{time} (%{hours}hr)"
+      airport_placeholder: "???"
+  time:
+    formats:
+      flight_short: "%-m/%-d/%Y %H%MZ"
+      flight_long: "%b %-d, %Y at %H:%M:%S %Z"
+  views:
+    flights:
+      show:
+        kml:
+          placemark:
+            start: "Start: %{origin}"
+            end: "End: %{destination}"
+          source: Source
+  workflow:
+    import:
+      error:
+        start_processing_upload: Failed to begin processing
+        process_import: "Couldn’t import %{filename}"
+        batch_import: Batch importing failed
+        create_telemetry_positions: Failed regenerating position values
+        complete_processing_upload: Failed to complete processing

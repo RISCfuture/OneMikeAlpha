@@ -1,0 +1,90 @@
+---
+fadds:
+  url_format: "https://nfdc.faa.gov/webContent/28DaySub/{date}/APT.zip"
+  country_mapping:
+    AI: AI
+    AN: NL
+    AS: AS
+    BL: BL
+    BM: BM
+    BS: BS
+    CN: CA
+    FM: FM
+    GL: GL
+    GP: GP
+    GU: GU
+    IO: IO
+    IQ: UM
+    MF: MF
+    MH: MH
+    MP: MP
+    MQ: UM
+    PW: PW
+    SH: SH
+    TC: TC
+    TQ: UM
+    VG: VG
+    VI: VI
+    WQ: UM
+icao:
+  airports:
+    url: "http://ourairports.com/airports.csv"
+    key_mapping:
+      :id: icao_number
+      :ident: icao
+      :name: name
+      :municipality: city
+      :iso_country: country_code
+      :latitude_deg: lat
+      :longitude_deg: lon
+      :elevation_ft: elevation
+      :local_code: lid
+      :iata_code: iata
+    integer_fields:
+    - :elevation
+    - :icao_number
+    float_fields:
+    - :lat
+    - :lon
+    feet_fields:
+    - :elevation
+    country_code_corrections:
+      XK: RS
+  runways:
+    url: "http://ourairports.com/data/runways.csv"
+    key_mapping:
+      :id: icao_number
+      :airport_ref: icao_airport_number
+      :length_ft: length
+      :width_ft: width
+      :le_ident: name[1]
+      :le_latitude_deg: lat[1]
+      :le_longitude_def: lon[1]
+      :le_elevation_ft: elevation[1]
+#      :le_displaced_threshold_ft: displaced_threshold[1]
+      :he_ident: name[2]
+      :he_latitude_deg: lat[2]
+      :he_longitude_def: lon[2]
+      :he_elevation_ft: elevation[2]
+#      :he_displaced_threshold_ft: displaced_threshold[2]
+    integer_fields:
+    - :length
+    - :width
+    - :elevation[1]
+    - :displaced_threshold[1]
+    - :elevation[2]
+    - :displaced_threshold[2]
+    - :id
+    - :icao_number
+    float_fields:
+    - :lat[1]
+    - :lon[1]
+    - :lat[2]
+    - :lon[2]
+    feet_fields:
+    - :length
+    - :width
+    - :elevation[1]
+    - :displaced_threshold[1]
+    - :elevation[2]
+    - :displaced_threshold[2]
