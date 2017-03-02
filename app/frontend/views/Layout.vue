@@ -1,0 +1,11 @@
+<template>
+  <router-view />
+</template>
+
+<script lang="ts">
+  import Vue from 'vue'
+  import Component, {mixins} from 'vue-class-component'
+
+  @Component
+  export default class Layout extends Vue {}
+</script>
