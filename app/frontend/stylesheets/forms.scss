@@ -1,0 +1,143 @@
+@import "config.scss";
+
+input[type=text], input[type=password], input[type=email] {
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 5px;
+
+    outline: none;
+    border: 1px solid $platinum;
+
+    &:focus {
+        border-color: $red;
+    }
+
+    &.invalid {
+        color: $red;
+    }
+
+    &.mini {
+        display: inline-block;
+        font-size: $font-size-mini;
+        padding: 3px;
+    }
+}
+
+$search-field-height: 24px;
+
+input[type=search] {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    height: $search-field-height;
+    padding: 5px;
+    /* appearance: none; */
+    border: 1px solid $medium-gray;
+    border-radius: $search-field-height/2;
+
+    &::placeholder {
+        color: $platinum;
+        font-family: 'Cabin', sans-serif;
+    }
+}
+
+select {
+    appearance: none;
+    border: 1px solid $platinum;
+    border-radius: 3px;
+    width: 100%; /* don't overflow the container */
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    padding: 5px calc(5px + 14px + 3px) 5px 5px;
+    background-image: url(../images/chevron-down.svg);
+    background-repeat: no-repeat;
+    background-position: center right 5px;
+    background-color: transparent;
+
+    &.mini {
+        border: none;
+        border-bottom: 1px solid $platinum;
+        border-radius: 0;
+        display: inline-block;
+        width: auto;
+        background-size: 10px;
+        font-size: $font-size-mini;
+    }
+}
+
+input[type=cancel], input[type=reset], a.button, button {
+    appearance: none;
+    border: 1px solid $medium-gray;
+    background-color: white;
+    color: $medium-gray;
+    padding: 5px 10px;
+    cursor: pointer;
+
+    &:disabled {
+        border-color: $platinum;
+        color: white;
+        background-color: $platinum;
+    }
+}
+
+input[type=submit] {
+    @extend button;
+    border-color: $red;
+    background-color: $red;
+    color: white;
+
+    &.mini {
+        font-size: $font-size-mini;
+        padding: 3px 5px;
+    }
+}
+
+.field-error-pair {
+    margin-bottom: 10px;
+
+    & > input, & > textarea {
+        margin-bottom: 0;
+    }
+}
+
+ul.errors {
+    margin: 0;
+    padding: 0;
+
+    li {
+        margin: 5px 0 0;
+        border: 0;
+        font-size: $font-size-mini;
+        list-style: none;
+        color: $red;
+    }
+}
+
+label:not(.unstyled) {
+    color: $gray;
+    font-size: 12px;
+    line-height: 12px;
+    text-transform: uppercase;
+    margin-bottom: 0;
+
+    + input, + select, + textarea,
+    + .field-error-pair > input, + .field-error-pair > select, + .field-error-pair > textarea {
+        margin-top: 0;
+    }
+}
+
+fieldset {
+    border: none;
+    margin: 10px 0;
+    padding: 0;
+
+    &:first-child {
+        margin-top: 0;
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+

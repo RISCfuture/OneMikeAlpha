@@ -1,0 +1,33 @@
+# PostgreSQL. Versions 9.1 and up are supported.
+
+shared:
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch('RAILS_MAX_THREADS') { 6 } %>
+
+default: &default
+  username: 1ma
+
+superuser: &superuser
+  username: tmorgan
+
+development:
+  <<: *default
+  database: 1ma_development
+
+development_superuser:
+  <<: *superuser
+  database: 1ma_development
+
+test:
+  database: 1ma_test
+  owner: 1ma
+  username: <%= ENV.fetch('RAILS_TEST_DB_USERNAME') { 'tmorgan' } %>
+
+test_superuser:
+  <<: *superuser
+  database: 1ma_test
+
+production:
+  <<: *default
+  database: 1ma_production

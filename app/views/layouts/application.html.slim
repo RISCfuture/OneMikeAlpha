@@ -1,0 +1,15 @@
+doctype html
+html lang=I18n.locale
+  head
+    meta charset="utf-8"
+    meta name="description" content="Interactive exploration of aircraft telemetry"
+    meta name="author" content="Tim Morgan"
+    = csrf_meta_tags
+
+    title OneMikeAlpha
+
+    = stylesheet_pack_tag 'application', nonce: content_security_policy_nonce
+    = javascript_pack_tag 'application', defer: true, nonce: true
+
+  body
+    = yield

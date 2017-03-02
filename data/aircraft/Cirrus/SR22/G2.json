@@ -1,0 +1,128 @@
+{
+  "tacview_type": "Air+Light+FixedWing",
+  "systems": {
+    "electrical_systems": ["bat1", "bat2", "alt1", "alt2", "main_bus", "emergency_bus"],
+    "pitot_static_systems": ["primary", "alternate"]
+  },
+  "limitations": {
+    "pitot_static_systems[any].indicated_airspeed": [
+      {
+        "from": "201 kt",
+        "type": "warning"
+      },
+      {
+        "from": "178 kt",
+        "to": "201 kt",
+        "type": "caution",
+        "plot_only": true
+      },
+      {
+        "from": "59 kt",
+        "to": "70 kt",
+        "type": "caution",
+        "plot_only": true
+      },
+      {
+        "to": "59 kt",
+        "type": "notice",
+        "plot_only": true
+      }
+    ],
+    "engines[any].propellers[any].rotational_velocity": [
+      {
+        "from": "2700 rpm",
+        "type": "warning"
+      }
+    ],
+    "engines[any].oil_temperature": [
+      {
+        "from": "240 tempF",
+        "type": "warning"
+      }
+    ],
+    "engines[any].oil_pressure": [
+      {
+        "to": "10 psi",
+        "type": "warning",
+        "plot_only": true
+      },
+      {
+        "from": "10 psi",
+        "to": "30 psi",
+        "type": "caution",
+        "plot_only": true
+      },
+      {
+        "from": "60 psi",
+        "to": "100 psi",
+        "type": "caution"
+      },
+      {
+        "from": "100 psi",
+        "type": "warning"
+      }
+    ],
+    "engines[any].cylinders[any].cylinder_head_temperature": [
+      {
+        "from": "420 tempF",
+        "to": "460 tempF",
+        "type": "caution"
+      },
+      {
+        "from": "460 tempF",
+        "type": "warning"
+      }
+    ],
+    "electrical_systems[main_bus]": [
+      {
+        "from": "30 V",
+        "to": "32 V",
+        "type": "caution"
+      },
+      {
+        "from": "32 V",
+        "type": "warning"
+      }
+    ],
+    "electrical_system[emergency_bus]": [
+      {
+        "from": "30 V",
+        "to": "32 V",
+        "type": "caution"
+      },
+      {
+        "from": "32 V",
+        "type": "warning"
+      }
+    ],
+    "acceleration_normal": [
+      {
+        "to": "3.8 gee",
+        "type": "warning"
+      },
+      {
+        "from": "-1.9 gee",
+        "type": "warning"
+      }
+    ],
+    "engines[any].manifold_pressure": [
+      {
+        "from": "29.5 inHg",
+        "type": "caution",
+        "plot_only": true
+      }
+    ],
+    "pitot_static_systems[any].pressure_altitude": [
+      {
+        "from": "17500 ft",
+        "type": "caution"
+      }
+    ],
+    "pitot_static_systems[any].indicated_altitude": [
+      {
+        "from": "17500 ft",
+        "type": "caution"
+      }
+    ]
+  }
+}

@@ -1,0 +1,47 @@
+@import "./config.scss";
+
+aside.sourcelist {
+    background-color: $platinum;
+    padding: 10px 0;
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+            font-size: 14px;
+            color: $gray;
+            line-height: 20px;
+            padding: 5px 10px;
+
+            &.header {
+                font-size: 12px;
+                font-weight: 700;
+                text-transform: uppercase;
+                color: $medium-gray;
+                padding: 0 10px;
+
+                &:not(:first-child) {
+                    margin-top: 15px;
+                }
+            }
+
+            &.active {
+                background-color: white;
+
+                a {
+                    color: $black;
+                }
+            }
+
+            a {
+                color: $gray;
+
+                &:hover {
+                    color: $dark-gray;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,28 @@
+<svg id="Trashcan" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 24">
+    <defs>
+        <style>
+            .cls-1, .cls-2 {
+                fill: none;
+                stroke: #c4c6ca;
+                stroke-miterlimit: 10;
+            }
+
+            .cls-1 {
+                 stroke-width: 2px;
+            }
+        </style>
+    </defs>
+    <title>Trash</title>
+    <g id="Trashcan-2" data-name="Trashcan">
+        <line id="Top_Lid" data-name="Top Lid" class="cls-1" x1="1" y1="3"
+              x2="17" y2="3"/>
+        <line id="Handle" class="cls-1" x1="7" y1="1" x2="11" y2="1"/>
+        <polygon id="Outline" class="cls-1" points="14 23 4 23 2 6 16 6 14 23"/>
+        <line id="Groove_L" data-name="Groove L" class="cls-2" x1="6.5" y1="6.5"
+              x2="7.5" y2="22.5"/>
+        <line id="Groove_R" data-name="Groove R" class="cls-2" x1="10.5"
+              y1="22.5" x2="11.5" y2="6.5"/>
+        <line id="Bottom_Lid" data-name="Bottom Lid" class="cls-1" y1="6"
+              x2="18" y2="6"/>
+    </g>
+</svg>

@@ -1,0 +1,2 @@
+module Telemetry::LandingGear
+end
