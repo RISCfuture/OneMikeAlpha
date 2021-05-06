@@ -19,7 +19,7 @@
     "color": "^3.1.2",
     "core-js": "3.6.5",
     "deepmerge": "^4.1.1",
-    "highcharts": "^8.0.4",
+    "highcharts": "^9.0.0",
     "in-viewport": "^3.6.0",
     "js-cookie": "^2.2.1",
     "js-quantities": "^1.7.5",
